@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => console.error("Header Error:", err));
 
-  fetch( repoName+ "/footer.html")
+  fetch( repoName + "/footer.html")
     .then(res => res.text())
     .then(data => {
       const footer = document.getElementById("footer");
