@@ -8,7 +8,7 @@ const basePath = isSubPage ? "../" : "";
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const repoName = "/muqabla-crop-science-pvt-ltd";
+  const repoName = "muqabla-crop-science-pvt-ltd";
 
   fetch(repoName + "header.html")
     .then(res => res.text())
