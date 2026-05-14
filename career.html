@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career - Muqabla Crop Science (Pvt) Ltd.</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+ <div id="header"></div>
+
+ <div id="style in header"></div>
+
+<script src="js/site.js"></script>
+
+<!-- ================= BANNER ================= -->
+<section class="relative h-[300px] flex items-center justify-center">
+
+  <img src="images/banners/career.jpg"
+       class="absolute w-full h-full object-cover">
+
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <h1 class="relative text-white text-5xl font-bold">
+    Career Opportunities
+  </h1>
+
+</section>
+
+<!-- ================= INTRO ================= -->
+<section class="py-16 text-center max-w-4xl mx-auto">
+
+  <h2 class="text-3xl font-bold text-green-900 mb-4">
+    Grow With Us
+  </h2>
+
+  <p class="text-gray-600 leading-7">
+    Join Muqabla Crop Science and become part of a growing agricultural company.
+    We offer opportunities in sales, agronomy, marketing and technical support.
+  </p>
+
+</section>
+
+<!-- ================= JOBS ================= -->
+<section class="py-10">
+
+  <div class="container mx-auto px-6 grid md:grid-cols-3 gap-6">
+
+    <!-- CARD 1 -->
+    <div class="bg-white p-6 rounded-xl shadow">
+
+      <h3 class="text-xl font-bold text-green-900">Sales Officer</h3>
+      <p class="text-gray-600 mt-2">Field sales & distributor handling</p>
+
+      <ul class="mt-3 text-gray-600 text-sm">
+        <li>✔ Market Visits</li>
+        <li>✔ Dealer Support</li>
+      </ul>
+
+      <button onclick="openForm('Sales Officer')"
+        class="mt-4 bg-green-900 text-white px-4 py-2 w-full rounded">
+        Apply Now
+      </button>
+
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="bg-white p-6 rounded-xl shadow">
+
+      <h3 class="text-xl font-bold text-green-900">Agronomist</h3>
+      <p class="text-gray-600 mt-2">Crop advisory services</p>
+
+      <ul class="mt-3 text-gray-600 text-sm">
+        <li>✔ Field Guidance</li>
+        <li>✔ Technical Support</li>
+      </ul>
+
+      <button onclick="openForm('Agronomist')"
+        class="mt-4 bg-green-900 text-white px-4 py-2 w-full rounded">
+        Apply Now
+      </button>
+
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="bg-white p-6 rounded-xl shadow">
+
+      <h3 class="text-xl font-bold text-green-900">Marketing Executive</h3>
+      <p class="text-gray-600 mt-2">Brand promotion & campaigns</p>
+
+      <ul class="mt-3 text-gray-600 text-sm">
+        <li>✔ Advertising</li>
+        <li>✔ Social Media</li>
+      </ul>
+
+      <button onclick="openForm('Marketing Executive')"
+        class="mt-4 bg-green-900 text-white px-4 py-2 w-full rounded">
+        Apply Now
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= FORM ================= -->
+<div id="applyForm"
+  class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
+
+  <div class="bg-white p-6 rounded-xl w-[90%] max-w-md">
+
+    <h2 class="text-xl font-bold mb-4 text-green-900">
+      Apply for <span id="jobTitle"></span>
+    </h2>
+
+    <input class="w-full border p-2 mb-3" placeholder="Name">
+    <input class="w-full border p-2 mb-3" placeholder="Email">
+    <input class="w-full border p-2 mb-3" placeholder="Phone">
+    <textarea class="w-full border p-2 mb-3" placeholder="Experience"></textarea>
+
+    <button class="bg-green-900 text-white w-full py-2 rounded">
+      Submit
+    </button>
+
+    <button onclick="closeForm()" class="mt-3 text-red-600 w-full">
+      Close
+    </button>
+
+  </div>
+
+</div>
+
+  <div id="footer"></div>
+
+<script src="js/site.js"></script>
