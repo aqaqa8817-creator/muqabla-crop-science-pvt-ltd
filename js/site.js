@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const repoName = "/muqabla-crop-science-pvt-ltd";
 
-  fetch( "header.html")
+  fetch(repoName + "/header.html")
     .then(res => res.text())
     .then(data => {
       const header = document.getElementById("header");
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => console.error("Header Error:", err));
 
-  fetch( "footer.html")
+  fetch( "/footer.html")
     .then(res => res.text())
     .then(data => {
       const footer = document.getElementById("footer");
