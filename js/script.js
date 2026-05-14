@@ -1,35 +1,57 @@
+// =====================
+// LOAD HEADER
+// =====================
 function loadHeader() {
-  fetch("/style in header.html")
+  fetch("header.html")
     .then(res => {
       if (!res.ok) throw new Error("Header file not found");
       return res.text();
     })
     .then(data => {
       const header = document.getElementById("header");
-      if (header) header.innerHTML = data;
+      if (header) {
+        header.innerHTML = data;
+      } else {
+        console.warn("No #header div found in HTML");
+      }
     })
     .catch(err => console.error("Header Error:", err));
 }
 
+
+// =====================
+// LOAD FOOTER
+// =====================
 function loadFooter() {
-  fetch("/footer.html")
+  fetch("footer.html")
     .then(res => {
       if (!res.ok) throw new Error("Footer file not found");
       return res.text();
     })
     .then(data => {
       const footer = document.getElementById("footer");
-      if (footer) footer.innerHTML = data;
+      if (footer) {
+        footer.innerHTML = data;
+      } else {
+        console.warn("No #footer div found in HTML");
+      }
     })
     .catch(err => console.error("Footer Error:", err));
 }
 
+
+// =====================
+// RUN ON PAGE LOAD
+// =====================
 document.addEventListener("DOMContentLoaded", () => {
   loadHeader();
   loadFooter();
 });
 
 
+// =====================
+// SLIDER CODE
+// =====================
 document.addEventListener("DOMContentLoaded", () => {
 
   let currentIndex = 0;
@@ -42,14 +64,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.getElementById("prev");
   const dotsContainer = document.getElementById("dots");
 
-  // ✅ CREATE DOTS
+  if (!slider || !nextBtn || !prevBtn || !dotsContainer || totalSlides === 0) {
+    console.warn("Slider elements missing in HTML");
+    return;
+  }
+
+  // CREATE DOTS
   slides.forEach((_, i) => {
     const dot = document.createElement("div");
     dot.className = "w-3 h-3 bg-white/50 rounded-full cursor-pointer";
+
     dot.addEventListener("click", () => {
       currentIndex = i;
       updateSlider();
     });
+
     dotsContainer.appendChild(dot);
   });
 
@@ -58,9 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateSlider() {
     slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    // active dot
     Array.from(dots).forEach(dot => dot.classList.remove("bg-white"));
-    dots[currentIndex].classList.add("bg-white");
+    if (dots[currentIndex]) {
+      dots[currentIndex].classList.add("bg-white");
+    }
   }
 
   function nextSlide() {
@@ -76,23 +106,22 @@ document.addEventListener("DOMContentLoaded", () => {
   nextBtn.addEventListener("click", nextSlide);
   prevBtn.addEventListener("click", prevSlide);
 
-  // ✅ AUTO SLIDE
+  // AUTO SLIDE
   let autoSlide = setInterval(nextSlide, 4000);
 
-  // Pause on hover
   slider.addEventListener("mouseenter", () => clearInterval(autoSlide));
   slider.addEventListener("mouseleave", () => {
     autoSlide = setInterval(nextSlide, 4000);
   });
 
-  // ✅ TOUCH SWIPE
+  // TOUCH SWIPE
   let startX = 0;
 
-  slider.addEventListener("touchstart", e => {
+  slider.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
   });
 
-  slider.addEventListener("touchend", e => {
+  slider.addEventListener("touchend", (e) => {
     let endX = e.changedTouches[0].clientX;
 
     if (startX - endX > 50) nextSlide();
@@ -100,5 +129,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   updateSlider();
-
 });
