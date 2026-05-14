@@ -39,6 +39,43 @@ function loadFooter() {
     .catch(err => console.error("Footer Error:", err));
 }
 
+function loadHeader() {
+  fetch("/header.html")
+    .then(res => {
+      if (!res.ok) throw new Error("Header file not found");
+      return res.text();
+    })
+    .then(data => {
+      const header = document.getElementById("header");
+      if (header) {
+        header.innerHTML = data;
+      } else {
+        console.warn("No #header div found in HTML");
+      }
+    })
+    .catch(err => console.error("Header Error:", err));
+}
+
+
+// =====================
+// LOAD FOOTER
+// =====================
+function loadFooter() {
+  fetch("/footer.html")
+    .then(res => {
+      if (!res.ok) throw new Error("Footer file not found");
+      return res.text();
+    })
+    .then(data => {
+      const footer = document.getElementById("footer");
+      if (footer) {
+        footer.innerHTML = data;
+      } else {
+        console.warn("No #footer div found in HTML");
+      }
+    })
+    .catch(err => console.error("Footer Error:", err));
+}
 
 // =====================
 // RUN ON PAGE LOAD
