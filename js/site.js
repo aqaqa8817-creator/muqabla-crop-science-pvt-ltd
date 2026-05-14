@@ -1,18 +1,27 @@
 // =====================
+// DETECT PAGE LOCATION
+// =====================
+const isSubPage = window.location.pathname.includes("/products/");
+
+const basePath = isSubPage ? "../" : "";
+
+
+// =====================
 // LOAD HEADER
 // =====================
 function loadHeader() {
-  fetch("header.html")
+  fetch(basePath + "header.html")
     .then(res => {
       if (!res.ok) throw new Error("Header file not found");
       return res.text();
     })
     .then(data => {
       const header = document.getElementById("header");
+
       if (header) {
         header.innerHTML = data;
       } else {
-        console.warn("No #header div found in HTML");
+        console.warn("No #header div found");
       }
     })
     .catch(err => console.error("Header Error:", err));
@@ -23,59 +32,23 @@ function loadHeader() {
 // LOAD FOOTER
 // =====================
 function loadFooter() {
-  fetch("footer.html")
+  fetch(basePath + "footer.html")
     .then(res => {
       if (!res.ok) throw new Error("Footer file not found");
       return res.text();
     })
     .then(data => {
       const footer = document.getElementById("footer");
+
       if (footer) {
         footer.innerHTML = data;
       } else {
-        console.warn("No #footer div found in HTML");
+        console.warn("No #footer div found");
       }
     })
     .catch(err => console.error("Footer Error:", err));
 }
 
-function loadHeader() {
-  fetch("/header.html")
-    .then(res => {
-      if (!res.ok) throw new Error("Header file not found");
-      return res.text();
-    })
-    .then(data => {
-      const header = document.getElementById("header");
-      if (header) {
-        header.innerHTML = data;
-      } else {
-        console.warn("No #header div found in HTML");
-      }
-    })
-    .catch(err => console.error("Header Error:", err));
-}
-
-
-// =====================
-// LOAD FOOTER
-// =====================
-function loadFooter() {
-  fetch("/footer.html")
-    .then(res => {
-      if (!res.ok) throw new Error("Footer file not found");
-      return res.text();
-    })
-    .then(data => {
-      const footer = document.getElementById("footer");
-      if (footer) {
-        footer.innerHTML = data;
-      } else {
-        console.warn("No #footer div found in HTML");
-      }
-    })
-    .catch(err => console.error("Footer Error:", err));
-}
 
 // =====================
 // RUN ON PAGE LOAD
@@ -84,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
   loadHeader();
   loadFooter();
 });
-
 
 // =====================
 // SLIDER CODE
