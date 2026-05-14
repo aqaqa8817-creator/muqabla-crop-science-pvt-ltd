@@ -3,7 +3,7 @@
 // =====================
 const isSubPage = window.location.pathname.includes("/products/");
 
-const basePath = isSubPage ? "../" : "";
+const basePath = isSubPage ? "../" : "/";
 
 
 document.addEventListener("DOMContentLoaded", () => {
