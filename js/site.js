@@ -6,56 +6,26 @@ const isSubPage = window.location.pathname.includes("/products/");
 const basePath = isSubPage ? "../" : "";
 
 
-// =====================
-// LOAD HEADER
-// =====================
-function loadHeader() {
-  fetch(basePath + "header.html")
-    .then(res => {
-      if (!res.ok) throw new Error("Header file not found");
-      return res.text();
-    })
+document.addEventListener("DOMContentLoaded", () => {
+
+  const repoName = "/muqabla-crop-science-pvt-ltd";
+
+  fetch(repoName + "/header.html")
+    .then(res => res.text())
     .then(data => {
       const header = document.getElementById("header");
-
-      if (header) {
-        header.innerHTML = data;
-      } else {
-        console.warn("No #header div found");
-      }
+      if (header) header.innerHTML = data;
     })
     .catch(err => console.error("Header Error:", err));
-}
 
-
-// =====================
-// LOAD FOOTER
-// =====================
-function loadFooter() {
-  fetch(basePath + "footer.html")
-    .then(res => {
-      if (!res.ok) throw new Error("Footer file not found");
-      return res.text();
-    })
+  fetch(repoName + "/footer.html")
+    .then(res => res.text())
     .then(data => {
       const footer = document.getElementById("footer");
-
-      if (footer) {
-        footer.innerHTML = data;
-      } else {
-        console.warn("No #footer div found");
-      }
+      if (footer) footer.innerHTML = data;
     })
     .catch(err => console.error("Footer Error:", err));
-}
 
-
-// =====================
-// RUN ON PAGE LOAD
-// =====================
-document.addEventListener("DOMContentLoaded", () => {
-  loadHeader();
-  loadFooter();
 });
 
 // =====================
