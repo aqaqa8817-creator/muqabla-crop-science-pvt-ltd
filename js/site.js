@@ -1,11 +1,6 @@
 // =====================
 // DETECT PAGE LOCATION
 // =====================
-const isSubPage = window.location.pathname.includes("/products/");
-
-const basePath = isSubPage ? "../" : "";
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const repoName = "/muqabla-crop-science-pvt-ltd";
