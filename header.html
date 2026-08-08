@@ -1,1 +1,190 @@
+<!-- HEADER -->
+<header class="w-full">
 
+  <div class="flex items-center justify-between px-4 py-3">
+
+    <!-- LOGO -->
+    <a href="index.html"
+       class="flex items-center m-0 p-0">
+
+      <img src="images/logo/logo12.png"
+           alt="Muqabla Crop Science Logo"
+           class="h-12 w-auto object-contain">
+
+    </a>
+
+
+    <!-- DESKTOP NAVIGATION -->
+    <nav class="hidden md:block">
+
+      <ul class="flex items-center gap-6 text-sm md:text-base list-none m-0 p-0">
+
+        <li>
+          <a href="index.html"
+             class="hover:text-yellow-400 transition">
+            Home
+          </a>
+        </li>
+
+        <!-- ABOUT DROPDOWN -->
+        <li class="relative group">
+
+          <a href="about.html"
+             class="hover:text-yellow-400 transition">
+            About ▾
+          </a>
+
+          <ul class="absolute left-0 top-full hidden group-hover:block
+                     bg-white text-gray-800 rounded-lg shadow-lg
+                     min-w-[180px] mt-2 overflow-hidden z-50
+                     list-none m-0 p-0">
+
+            <li>
+              <a href="about.html"
+                 class="block px-4 py-3 hover:bg-gray-100">
+                About Us
+              </a>
+            </li>
+
+            <li>
+              <a href="management.html"
+                 class="block px-4 py-3 hover:bg-gray-100">
+                Management
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+
+        <li>
+          <a href="products.html"
+             class="hover:text-yellow-400 transition">
+            Products
+          </a>
+        </li>
+
+        <li>
+          <a href="crops.html"
+             class="hover:text-yellow-400 transition">
+            Crops
+          </a>
+        </li>
+
+        <li>
+          <a href="seeds.html"
+             class="hover:text-yellow-400 transition">
+            Seeds
+          </a>
+        </li>
+
+        <li>
+          <a href="career.html"
+             class="hover:text-yellow-400 transition">
+            Career
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html"
+             class="hover:text-yellow-400 transition">
+            Contact
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="menu-button"
+            class="md:hidden text-3xl focus:outline-none"
+            aria-label="Open Menu">
+
+      ☰
+
+    </button>
+
+  </div>
+
+
+  <!-- MOBILE NAVIGATION -->
+  <nav id="mobile-menu"
+       class="hidden md:hidden">
+
+    <ul class="flex flex-col list-none m-0 px-4 pb-4">
+
+      <li>
+        <a href="index.html"
+           class="block py-3 hover:text-yellow-400 transition">
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="about.html"
+           class="block py-3 hover:text-yellow-400 transition">
+          About Us
+        </a>
+      </li>
+
+      <li>
+        <a href="management.html"
+           class="block py-3 hover:text-yellow-400 transition">
+          Management
+        </a>
+      </li>
+
+      <li>
+        <a href="products.html"
+           class="block py-3 hover:text-yellow-400 transition">
+          Products
+        </a>
+      </li>
+
+      <li>
+        <a href="crops.html"
+           class="block py-3 hover:text-yellow-400 transition">
+          Crops
+        </a>
+      </li>
+
+      <li>
+        <a href="seeds.html"
+           class="block py-3 hover:text-yellow-400 transition">
+          Seeds
+        </a>
+      </li>
+
+      <li>
+        <a href="career.html"
+           class="block py-3 hover:text-yellow-400 transition">
+          Career
+        </a>
+      </li>
+
+      <li>
+        <a href="contact.html"
+           class="block py-3 hover:text-yellow-400 transition">
+          Contact
+        </a>
+      </li>
+
+    </ul>
+
+  </nav>
+
+</header>
+
+
+<!-- MOBILE MENU JAVASCRIPT -->
+<script>
+  const menuButton = document.getElementById("menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuButton.addEventListener("click", function () {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
